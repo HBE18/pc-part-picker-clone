@@ -1,0 +1,33 @@
+.contact{
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    width: 25vw;
+    margin-top: 15px;
+    margin-bottom: 32px;
+}
+.contact h3{
+    color: #000000;
+    margin: 25px 0px;
+}
+.contact a{
+    color: #000000;
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+.contact a:hover{
+    color: #000000;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+background-color: rgb(232, 167, 179);
+
+}
+
+/* Add a background color and some padding around the form */
+.container {
+    border-radius: 5px;
+    background-color: rgb(219, 153, 165);
+    padding: 20px;
+  }

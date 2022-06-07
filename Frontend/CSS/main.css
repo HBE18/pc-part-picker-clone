@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(230, 177, 187);
+}
+
+.main{
+    width: 80vw;
+    margin: 65px 10vw 0px 10vw;
+}
+
+.title {
+    margin-top: 1%;
+    text-align: center;
+    font-family: "Helvetica";
+}

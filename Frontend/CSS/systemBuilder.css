@@ -29,9 +29,6 @@
     z-index: 1;
 }
 
-li{
-    margin-top: 10px;
-}
 
 /* Links inside the dropdown */
 .dropdown-content a {
@@ -50,4 +47,8 @@ li{
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
     display: block;
+}
+
+.main li{
+    margin-top: 10px;
 }

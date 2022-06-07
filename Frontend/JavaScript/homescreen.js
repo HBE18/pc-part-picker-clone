@@ -23,3 +23,20 @@ function showSlides() {
     }
 
 }
+
+//slider
+
+$(document).ready(function() {
+    $("#slider").bxSlider({
+      auto: true,
+      minSlides: 1,//how many slides on shown at the same time
+      maxSlides: 1,
+      slideWidth: 1250,
+      slideMargin: 10,
+      randomStart: true,//for random
+      captions: true,//for bottom image texts
+      autoHover: true,//photo not change while hovering th emouse
+      pause: 3000,//3 sec
+      pagerType: "short"
+    });
+});
