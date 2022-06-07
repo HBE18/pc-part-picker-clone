@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Part Picker</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/CSS/systemBuilder.css">
+</head>
+
+<body style="background-color: rgb(230, 177, 187);">
+
+  <!-- Navbar Here -->
+
+  <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">PCPP</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Homepage</a>
+              </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="/system-builder">System Builder</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about-us">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact-us">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navbar Ends -->
+
+
+  <h1 class="title"">System Builder</h1>
+
+    <ul>
+      <li id=" cpu">
+    CPU:
+    <!-- <a id="content-cpu" onclick="cpus()">Please select a CPU</a> -->
+    <div class="dropdown">
+      <button class="dropbtn">Select A CPU</button>
+      <div id="cpuDropdown" class="dropdown-content">
+        <a href="#">Asus TUF GAMING X570-PLUS (WI-FI) ATX AM4</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
+    </li>
+    <li>
+      CPU Cooler:
+      <div class="dropdown">
+        <button class="dropbtn">Select A CPU Cooler</button>
+        <div id="coolerDropdown" class="dropdown-content">
+          <a href="#">Asus TUF GAMING X570-PLUS (WI-FI) ATX AM4</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+    </li>
+    <li id = "li-mb">
+      Motherboard:
+
+      <div class="dropdown" id="drp-mb" >
+        <button class="dropbtn">Select A Motherboard</button>
+        <div id="mbDropdown" class="dropdown-content">
+          <a href="#">Asus TUF GAMING X570-PLUS (WI-FI) ATX AM4</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      Memory:
+      <div class="dropdown">
+        <button class="dropbtn">Select A Memory</button>
+        <div id="memoryDropdown" class="dropdown-content">
+          <a href="#">Asus TUF GAMING X570-PLUS (WI-FI) ATX AM4</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      Storage:
+      <div class="dropdown">
+        <button class="dropbtn">Select A Storage</button>
+        <div id="storageDropdown" class="dropdown-content">
+          <a href="#">Asus TUF GAMING X570-PLUS (WI-FI) ATX AM4</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      GPU:
+      <div class="dropdown">
+        <button class="dropbtn">Select A GPU</button>
+        <div id="gpuDropdown" class="dropdown-content">
+          <a href="#">Asus TUF GAMING X570-PLUS (WI-FI) ATX AM4</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      Case:
+      <div class="dropdown">
+        <button class="dropbtn">Select A Case</button>
+        <div id="caseDropdown" class="dropdown-content">
+          <a href="#">Asus TUF GAMING X570-PLUS (WI-FI) ATX AM4</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      Power Supply:
+      <div class="dropdown">
+        <button class="dropbtn">Select A Power Supply</button>
+        <div id="powerDropdown" class="dropdown-content">
+          <a href="#">Asus TUF GAMING X570-PLUS (WI-FI) ATX AM4</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      Monitor:
+      <div class="dropdown">
+        <button class="dropbtn">Select A Monitor</button>
+        <div id="monitorDropdown" class="dropdown-content">
+          <a href="#">Asus TUF GAMING X570-PLUS (WI-FI) ATX AM4</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+    </li>
+    </ul>
+    <hr>
+    <h2 style="margin-left: 20%;">Price:</h2><button class="btn btn-success"
+      style="margin-left: 80%; height:50px; width:120px;">Save</button>
+    <a href="/" class="btn btn-danger"
+      style="text-align: center; margin-top: 2%; margin-left: 80%; height:50px; width:120px;">Cancel</a>
+
+    <!-- Table -->
+    <!-- <div class="container table-div">
+      <p class="table-item">item</p> -->
+    <!-- <table class="table table-striped-columns table-bordered table-responsive" style="border-width: 100px;">
+        <thead>
+          <tr class="border-dark">
+            <th scope="col">Name</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>      
+        <tr class="table-primary border-dark">
+          <td>Core Duo</td>
+          <td>Intel</td>
+          <td>$49.99</td>
+        </tr>
+        <tr class="table-primary border-dark">
+          <td>Ryzen 5 5600X</td>
+          <td>AMD</td>
+          <td>$189.99</td>
+        </tr>
+      </table> -->
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"></script>
+    <script src="/JavaScript/systemBuilder.js"></script>
+    <noscript>Sorry, your browser does not support JavaScript!</noscript>
+</body>
+
+</html>
