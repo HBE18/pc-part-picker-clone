@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [P3_DB]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Database [P3_DB]    Script Date: 07-Jun-22 10:09:10 PM ******/
 CREATE DATABASE [P3_DB]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -80,19 +80,19 @@ ALTER DATABASE [P3_DB] SET QUERY_STORE = OFF
 GO
 USE [P3_DB]
 GO
-/****** Object:  User [ppp_user]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  User [ppp_user]    Script Date: 07-Jun-22 10:09:10 PM ******/
 CREATE USER [ppp_user] FOR LOGIN [ppp_user] WITH DEFAULT_SCHEMA=[COMMON]
 GO
-/****** Object:  Schema [AUTH]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Schema [AUTH]    Script Date: 07-Jun-22 10:09:10 PM ******/
 CREATE SCHEMA [AUTH]
 GO
-/****** Object:  Schema [COMMON]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Schema [COMMON]    Script Date: 07-Jun-22 10:09:10 PM ******/
 CREATE SCHEMA [COMMON]
 GO
-/****** Object:  Schema [LT_COMMON]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Schema [LT_COMMON]    Script Date: 07-Jun-22 10:09:10 PM ******/
 CREATE SCHEMA [LT_COMMON]
 GO
-/****** Object:  Table [AUTH].[USERS]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [AUTH].[USERS]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -108,7 +108,7 @@ CREATE TABLE [AUTH].[USERS](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [COMMON].[Case]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [COMMON].[Case]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -132,7 +132,7 @@ CREATE TABLE [COMMON].[Case](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [COMMON].[CPU]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [COMMON].[CPU]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -159,7 +159,7 @@ CREATE TABLE [COMMON].[CPU](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [COMMON].[CPU_COOLER]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [COMMON].[CPU_COOLER]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -181,14 +181,14 @@ CREATE TABLE [COMMON].[CPU_COOLER](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [COMMON].[GPU]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [COMMON].[GPU]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [COMMON].[GPU](
 	[GPU_ID] [uniqueidentifier] NOT NULL,
-	[Name] [varbinary](50) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
 	[Price] [float] NOT NULL,
 	[Image] [image] NULL,
 	[Manufacturer] [varchar](20) NOT NULL,
@@ -209,7 +209,7 @@ CREATE TABLE [COMMON].[GPU](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [COMMON].[M2]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [COMMON].[M2]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -230,7 +230,7 @@ CREATE TABLE [COMMON].[M2](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [COMMON].[Memory]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [COMMON].[Memory]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -252,7 +252,7 @@ CREATE TABLE [COMMON].[Memory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [COMMON].[Monitor]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [COMMON].[Monitor]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -271,13 +271,14 @@ CREATE TABLE [COMMON].[Monitor](
 	[Brightness] [int] NOT NULL,
 	[Has_HDR] [bit] NOT NULL,
 	[HDR_Version] [varchar](10) NULL,
+	[Screen_Size] [float] NOT NULL,
  CONSTRAINT [PK_Monitor] PRIMARY KEY CLUSTERED 
 (
 	[Monitor_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [COMMON].[MOTHERBOARD]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [COMMON].[MOTHERBOARD]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -306,7 +307,7 @@ CREATE TABLE [COMMON].[MOTHERBOARD](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [COMMON].[PSU]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [COMMON].[PSU]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -326,7 +327,7 @@ CREATE TABLE [COMMON].[PSU](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [COMMON].[SATA]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [COMMON].[SATA]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -347,7 +348,7 @@ CREATE TABLE [COMMON].[SATA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [LT_COMMON].[BUILD]    Script Date: 07-Jun-22 3:47:28 PM ******/
+/****** Object:  Table [LT_COMMON].[BUILD]    Script Date: 07-Jun-22 10:09:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -371,6 +372,46 @@ CREATE TABLE [LT_COMMON].[BUILD](
 	[Build_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+INSERT [AUTH].[USERS] ([User_ID], [Username], [email], [password]) VALUES (N'5db1c092-1934-4399-a599-312999630487', N'User1', N'example@example.com', N'duperhard123')
+GO
+INSERT [AUTH].[USERS] ([User_ID], [Username], [email], [password]) VALUES (N'5efe2fb5-8acd-49dd-9d87-ad0a0b2e9dca', N'Admin', N'admin@p3.com', N'yourStrongPassword')
+GO
+INSERT [COMMON].[Case] ([Case_ID], [Manufacturer], [Name], [Image], [Price], [Form_Factor], [Fan_Size], [Fan_Count], [PSU_Inc], [Wattage], [TemperedGlassPanel_Inc], [RGB_Inc]) VALUES (N'93c02ded-3797-4b6a-a700-89a2bdb95dc1', N'Lian Li', N'O11 Dynamic Evo', NULL, 179.99, N'EATX', 120, 6, 0, NULL, 1, 1)
+GO
+INSERT [COMMON].[Case] ([Case_ID], [Manufacturer], [Name], [Image], [Price], [Form_Factor], [Fan_Size], [Fan_Count], [PSU_Inc], [Wattage], [TemperedGlassPanel_Inc], [RGB_Inc]) VALUES (N'068ba998-2ad1-4ace-947f-c2960d470df9', N'Antec', N'DF700 Flux', NULL, 102.99, N'ATX', 120, 4, 0, NULL, 1, 1)
+GO
+INSERT [COMMON].[CPU] ([CPU_ID], [Socket], [CoreCount], [Frequency], [Manufacturer], [CacheSize], [CoolerInc], [TDP], [Family], [Architecture], [ModelNo], [Image], [Name], [BoostFrequency], [Price]) VALUES (N'f1fc81b4-1944-4697-b73f-5c78f1764ade', N'AM4', 6, 3.7, N'AMD', 32, 1, 65, N'Vermeer', N'Zen 3 ', N'5600X', NULL, N'Ryzen 5 5600X', 4.6, 199.99)
+GO
+INSERT [COMMON].[CPU] ([CPU_ID], [Socket], [CoreCount], [Frequency], [Manufacturer], [CacheSize], [CoolerInc], [TDP], [Family], [Architecture], [ModelNo], [Image], [Name], [BoostFrequency], [Price]) VALUES (N'730d2411-86bd-4c59-ae8b-948d9d452894', N'LGA1700', 12, 3.6, N'Intel', 25, 0, 125, N'Alder Lake', N'Alder Lake', N'12700K', NULL, N'Core i7-12700K', 5, 384.99)
+GO
+INSERT [COMMON].[CPU_COOLER] ([Cooler_ID], [Name], [Manufacturer], [Image], [Price], [Fan_Size], [Type], [Max_TDP], [Fan_Count], [Noise]) VALUES (N'bc77778c-4e6e-46fa-bc8f-55ab303ffc7f', N'Freezer 34 eSports Duo', N'ARCTIC', NULL, 52.99, 120, N'Tower', 65, 2, 24)
+GO
+INSERT [COMMON].[CPU_COOLER] ([Cooler_ID], [Name], [Manufacturer], [Image], [Price], [Fan_Size], [Type], [Max_TDP], [Fan_Count], [Noise]) VALUES (N'0f2f76be-4f7c-4139-9793-94f6990ecf3e', N'GALAHAD AIO 360 RGB UNI FAN SL120 EDITION ', N'Lian Li', NULL, 175.9, 120, N'Water Cooling', 120, 3, 32)
+GO
+INSERT [COMMON].[GPU] ([GPU_ID], [Name], [Price], [Image], [Manufacturer], [Partner_Firm], [VRAM_Type], [VRAM_Volume], [Family], [Model], [Recommended_Power], [Core_Count], [Core_Freqeuncy], [Boost_Frequency], [Memory_Bandwith], [Memory_Frequency]) VALUES (N'2f4952f7-5260-4ef6-aa9f-a0add5f7d15e', N'GeForce RTX 3080', 978.58, NULL, N'NVIDIA', N'Palit', N'GDDR6X', 10240, N'RTX 3000', N'3080', 320, 8704, 1440, 1740, 760, 19000)
+GO
+INSERT [COMMON].[GPU] ([GPU_ID], [Name], [Price], [Image], [Manufacturer], [Partner_Firm], [VRAM_Type], [VRAM_Volume], [Family], [Model], [Recommended_Power], [Core_Count], [Core_Freqeuncy], [Boost_Frequency], [Memory_Bandwith], [Memory_Frequency]) VALUES (N'1537bf80-ee2a-4923-b7e0-b93b2766a67b', N'Radeon RX 6600 XT Speedster SWFT 210', 359.99, NULL, N'AMD', N'XFX', N'GDDR6', 8192, N'RX 6000', N'6600', 160, 32, 2092, 2589, 256, 16000)
+GO
+INSERT [COMMON].[M2] ([M2_ID], [Name], [Manufacturer], [Image], [Price], [Volume], [Read_Speed], [Write_Speed], [PCI_Version]) VALUES (N'cc560a26-b65c-40fd-b0cb-0ba2e3f44e2f', N'Rocket', N'Sabrent', NULL, 129.99, 1024, 5000, 4400, 4)
+GO
+INSERT [COMMON].[M2] ([M2_ID], [Name], [Manufacturer], [Image], [Price], [Volume], [Read_Speed], [Write_Speed], [PCI_Version]) VALUES (N'caa4a3ba-5173-43a1-8aae-1cf214e15cda', N'Green', N'Western Digital', NULL, 74.98, 960, 2400, 1900, 3)
+GO
+INSERT [COMMON].[Memory] ([Memory_ID], [Name], [Manufacturer], [Image], [Price], [Memory_Type], [Memory_Frequency], [Memory_Volume], [Memory_Count], [Latency]) VALUES (N'd39b9230-ed95-49c1-9a70-36e103ceff22', N'Vengance LPX', N'Corsair', NULL, 76.99, N'DDR4', 3600, 8, 2, N'CL16')
+GO
+INSERT [COMMON].[Memory] ([Memory_ID], [Name], [Manufacturer], [Image], [Price], [Memory_Type], [Memory_Frequency], [Memory_Volume], [Memory_Count], [Latency]) VALUES (N'370e9345-bb99-45fa-82e0-63d4d5275c14', N'Vengence RGB RT', N'Corsair', NULL, 146.99, N'DDR4', 3600, 16, 2, N'CL16')
+GO
+INSERT [COMMON].[Monitor] ([Monitor_ID], [Name], [Manufacturer], [Image], [Price], [Panel_Type], [Refresh_Rate], [Resolution], [Sync], [Connection], [Brightness], [Has_HDR], [HDR_Version], [Screen_Size]) VALUES (N'1a05e9d9-4fb0-42ee-8757-1ed90ecb20ef', N'CQ32G1', N'AOC', NULL, 250.87, N'VA', 144, N'2560x1440', N'FreeSync', N'HDMI', 300, 0, NULL, 31.5)
+GO
+INSERT [COMMON].[MOTHERBOARD] ([MotherBoard_ID], [Manufacturer], [MotherBoard_Socket], [Chipset], [MemorySlot_Count], [Memory_Frequency], [SoundCard], [PCIe_Version], [PCIe_Max], [M2_Count], [SATA_Count], [USB_Version], [Image], [Memory_Type], [Form_Factor], [Name], [Price]) VALUES (N'1f0dd137-f943-4ba5-9091-53150764d3ee', N'Gigabyte', N'LGA1700', N'Z690', 4, 5333, N'Realtek ALC1220-VB', 5, N'3', 2, 1, 3.2, NULL, N'DDR4', N'ATX', N'AORUS ELITE AX', 297.26)
+GO
+INSERT [COMMON].[MOTHERBOARD] ([MotherBoard_ID], [Manufacturer], [MotherBoard_Socket], [Chipset], [MemorySlot_Count], [Memory_Frequency], [SoundCard], [PCIe_Version], [PCIe_Max], [M2_Count], [SATA_Count], [USB_Version], [Image], [Memory_Type], [Form_Factor], [Name], [Price]) VALUES (N'9e406478-0022-4960-8728-e853f87a5f51', N'ASRock', N'AM4', N'B550', 4, 4533, NULL, 4, N'2', 1, 4, 3.2, NULL, N'DDR4', N'ATX', N'Phantom Gaming 4/ac', 94.99)
+GO
+INSERT [COMMON].[PSU] ([PSU_ID], [Name], [Manufacturer], [Image], [Price], [Sertificate], [Wattage], [Is_Modular]) VALUES (N'5e6906c3-25fa-42e8-aa99-351b5f30a5e4', N'B5', N'EVGA', NULL, 69.98, N'Bronze', 550, 1)
+GO
+INSERT [COMMON].[PSU] ([PSU_ID], [Name], [Manufacturer], [Image], [Price], [Sertificate], [Wattage], [Is_Modular]) VALUES (N'4ca7d727-66f8-404c-97b9-89d9a7ad88e2', N'RMx (2021)', N'Corsair', NULL, 134.99, N'Gold', 850, 1)
+GO
+INSERT [COMMON].[SATA] ([SATA_ID], [Name], [Manufacturer], [Image], [Price], [Volume], [Read_Speed], [Write_Speed], [RPM]) VALUES (N'7c549ca2-9d85-4c4e-8c98-6b33a51f0883', N'Red Plus', N'Western Digital', NULL, 208.93, 8192, 210, 180, 7200)
 GO
 ALTER TABLE [LT_COMMON].[BUILD]  WITH CHECK ADD  CONSTRAINT [FK_BUILD_Case] FOREIGN KEY([Case_ID])
 REFERENCES [COMMON].[Case] ([Case_ID])
