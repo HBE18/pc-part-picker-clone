@@ -1,3 +1,3 @@
-/Backend/PC-Part-Picker/.vs
-/Backend/PC-Part-Picker/bin
-/Backend/PC-Part-Picker/obj
+Backend/PC-Part-Picker/.vs/**
+Backend/PC-Part-Picker/bin/**
+Backend/PC-Part-Picker/obj/**
