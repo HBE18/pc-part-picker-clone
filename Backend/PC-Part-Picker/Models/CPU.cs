@@ -9,7 +9,7 @@ public class CPU
 	public float Frequency { get; set; }
 	public string Manufacturer { get; set; }
 	public float CacheSize { get; set; }
-	public Boolean CoolerInc { get; set; }
+	public bool CoolerInc { get; set; }
 	public int TDP { get; set; }
 	public string? Family { get; set; }
 	public string? Architecture { get; set; }

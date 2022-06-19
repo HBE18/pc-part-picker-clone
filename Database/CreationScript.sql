@@ -201,7 +201,7 @@ CREATE TABLE [COMMON].[GPU](
 	[Core_Count] [int] NOT NULL,
 	[Core_Freqeuncy] [int] NOT NULL,
 	[Boost_Frequency] [int] NOT NULL,
-	[Memory_Bandwith] [int] NOT NULL,
+	[Memory_Bandwidth] [int] NOT NULL,
 	[Memory_Frequency] [int] NOT NULL,
  CONSTRAINT [PK_GPU] PRIMARY KEY CLUSTERED 
 (
@@ -223,7 +223,7 @@ CREATE TABLE [COMMON].[M2](
 	[Volume] [int] NOT NULL,
 	[Read_Speed] [int] NOT NULL,
 	[Write_Speed] [int] NOT NULL,
-	[PCI_Version] [float] NOT NULL,
+	[PCIe_Version] [float] NOT NULL,
  CONSTRAINT [PK_M2] PRIMARY KEY CLUSTERED 
 (
 	[M2_ID] ASC
