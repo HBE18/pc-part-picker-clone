@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Query Tool</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+
+  <script>
+    $(function() {
+      var selected = "";
+      var count = 0;
+      var outputs = $('[name="output"]');
+      var current;
+      $('#select0').on('change', function() {
+        if (count < outputs.length) {
+          current = outputs.eq(count);
+          count++;
+          selected = $(this).val();
+          current.val(selected);
+        } else return;
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+  <form id="process1" name="process1" action="http://www.hashemian.com/tools/form-post-tester.php/tesso/" target='frame1' method='post'>
+    <fieldset>
+      <legend>
+        <h1>Form Post Test</h1>
+      </legend>
+
+      <figure class='fig'>
+        <figcaption>This is an iframe that will display whatever the server has received from this form. Unfortunately this will not function because SO sandbox security is too strict</figcaption>
+        <iframe id='frame1' name='frame1' src='about:blank' width='98%'></iframe>
+      </figure>
+
+      <fieldset>
+        <select id="select0" name="select0">
+          <option value="Ship Type">Ship Type</option>
+          <option value="Anomaly Type">Anomaly Type</option>
+          <option value="MMSI">MMSI</option>
+        </select>
+        <input type="submit">
+      </fieldset>
+      <br/>
+      <br/>
+      <label for='select1'>Select 1:</label>
+      <input id="select1" name='output'>
+      <br/>
+      <label for='select2'>Select 2:</label>
+      <input id="select2" name='output'>
+      <br/>
+      <label for='select3'>Select 3:</label>
+      <input id="select3" name='output'>
+      <br/>
+      <label for='select4'>Select 4:</label>
+      <input id="select4" name='output'>
+      <br/>
+      <label for='select5'>Select 5:</label>
+      <input id="select5" name='output'>
+      <br/>
+      <label for='select6'>Select 6:</label>
+      <input id="select6" name='output'>
+      <br/>
+      <label for='select7'>Select 7:</label>
+      <input id="select7" name='output'>
+      <br/>
+      <label for='select8'>Select 8:</label>
+      <input id="select8" name='output'>
+      <br/>
+      <br/>
+
+    </fieldset>
+  </form>
+</body>
+
+</html>

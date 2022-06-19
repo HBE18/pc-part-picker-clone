@@ -32,26 +32,29 @@ window.onclick = function (event) {
     }
 }
 
+async function getDropdownItems(dropdownID, endpoint){
+    const drp = document.querySelector("#mbDropdown");
 
-const drp = document.querySelector("#mbDropdown");
-
-var a = document.createElement("a");
-a.innerHTML = "Dynamically Added";
-a.onclick = () => {
-    const liMb = document.querySelector("#li-mb");
-    const drpMb = document.querySelector("#drp-mb");
-    let span = document.createElement("span");
-    span.textContent = a.innerHTML;
-    liMb.replaceChild(span, drpMb);
-    let myA = document.createElement("a");
-    myA.textContent = "edit";
-    myA.className = "link";
-    myA.style.cursor = "pointer";
-    myA.onclick = () => {
-        liMb.replaceChild(drpMb, span);
-        liMb.removeChild(myA);
+    var a = document.createElement("a");
+    a.innerHTML = "Dynamically Added";
+    a.onclick = () => {
+        const liMb = document.querySelector("#li-mb");
+        const drpMb = document.querySelector("#drp-mb");
+        let span = document.createElement("span");
+        span.textContent = a.innerHTML;
+        liMb.replaceChild(span, drpMb);
+        let myA = document.createElement("a");
+        myA.textContent = "edit";
+        myA.className = "link";
+        myA.style.cursor = "pointer";
+        myA.onclick = () => {
+            liMb.replaceChild(drpMb, span);
+            liMb.removeChild(myA);
+        }
+        liMb.appendChild(myA);
     }
-    liMb.appendChild(myA);
+
+    drp.appendChild(a);
 }
 
-drp.appendChild(a);
+getDropdownItems();

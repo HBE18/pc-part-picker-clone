@@ -12,3 +12,40 @@ body {
     text-align: center;
     font-family: "Helvetica";
 }
+
+nav {
+    position: fixed;
+    background-color: #060167;
+    overflow: hidden;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+  
+  /* Style the links inside the navigation bar */
+  nav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  
+  /* Change the color of links on hover */
+  nav a:hover {
+    color: rgb(230, 177, 187);
+  }
+
+    /* Change the color of links on hover */
+    nav a.navbar-brand:hover {
+      color: rgb(230, 177, 187);
+    }
+  
+  /* Add a color to the active/current link */
+  nav a.active {
+    background-color: #2f2a8c;
+    color: white;
+  }
