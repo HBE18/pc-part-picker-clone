@@ -32,29 +32,115 @@ window.onclick = function (event) {
     }
 }
 
-async function getDropdownItems(dropdownID, endpoint){
-    const drp = document.querySelector("#mbDropdown");
+async function getDropdownItems(dropdownIDs){
+    const link = "localhost:5089/systemBuilder"
+    results = await Promise.all([
+        fetch(`${link}/cpus`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }),
+        fetch(`${link}/coolers`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }),
+        fetch(`${link}/motherboards`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }),
+        fetch(`${link}/memories`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }),
+        fetch(`${link}/storages`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }),
+        fetch(`${link}/gpus`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }),
+        fetch(`${link}/cases`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }),
+        fetch(`${link}/powers`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }),
+        fetch(`${link}/monitors`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        })
+    ])
 
-    var a = document.createElement("a");
-    a.innerHTML = "Dynamically Added";
-    a.onclick = () => {
-        const liMb = document.querySelector("#li-mb");
-        const drpMb = document.querySelector("#drp-mb");
-        let span = document.createElement("span");
-        span.textContent = a.innerHTML;
-        liMb.replaceChild(span, drpMb);
-        let myA = document.createElement("a");
-        myA.textContent = "edit";
-        myA.className = "link";
-        myA.style.cursor = "pointer";
-        myA.onclick = () => {
-            liMb.replaceChild(drpMb, span);
-            liMb.removeChild(myA);
+    const dataPromises = results.map(result => result.json())
+    const finalData = await Promise.all(dataPromises);
+
+
+    for (let index = 0; index < dropdownIDs.length; index++) {
+        const element = dropdownIDs[index];
+        const obj = finalData[index];
+        const drp = document.querySelector(element);
+        const elementType = element.split("Dropdown")[0];
+
+        var a = document.createElement("a");
+        a.innerHTML = obj.Name;
+        a.onclick = () => {
+            const liMb = document.querySelector(`#${elementType}`);
+            const drpMb = document.querySelector(`#drp${elementType}`);
+            let span = document.createElement("span");
+            span.textContent = a.innerHTML;
+            liMb.replaceChild(span, drpMb);
+            let myA = document.createElement("a");
+            myA.textContent = "edit";
+            myA.className = "link";
+            myA.style.cursor = "pointer";
+            myA.onclick = () => {
+                liMb.replaceChild(drpMb, span);
+                liMb.removeChild(myA);
+            }
+            liMb.appendChild(myA);
         }
-        liMb.appendChild(myA);
-    }
 
-    drp.appendChild(a);
+        drp.appendChild(a);
+    }
 }
 
-getDropdownItems();
+getDropdownItems([
+    "#cpuDropdown",
+    "#coolerDropdown",
+    "#mbDropdown",
+    "#memoryDropdown",
+    "#storageDropdown",
+    "#gpuDropdown",
+    "#caseDropdown",
+    "#powerDropdown",
+    "#monitorDropdown"
+]);
