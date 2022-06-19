@@ -1,8 +1,8 @@
-namespace PC_Part_Picker.Models
+namespace PC_Part_Picker.Models;
 
 public class PSU
 {
-    public PSU_ID { get; set; }
+    public Guid PSU_ID { get; set; }
     public string Name { get; set; }
     public string Manufacturer { get; set; }
     public byte[]? Image { get; set; }
