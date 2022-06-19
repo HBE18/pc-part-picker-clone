@@ -4,7 +4,7 @@ public class GPU
 {
 	public Guid GPU_ID { get; set; }
 	public string Name { get; set; }
-	public float Price { get; set; }
+	public double Price { get; set; }
 	public byte[]? Image { get; set; }
 	public string Manufacturer { get; set; }
 	public string Partner_Firm { get; set; }

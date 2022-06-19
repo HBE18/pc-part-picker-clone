@@ -6,9 +6,8 @@ public class PSU
     public string Name { get; set; }
     public string Manufacturer { get; set; }
     public byte[]? Image { get; set; }
-    public float Price { get; set; }
+    public double Price { get; set; }
     public string? Sertificate { get; set; }
     public int Wattage { get; set; }
-    public string Resolution { get; set; }
     public bool Is_Modular { get; set; }
 }

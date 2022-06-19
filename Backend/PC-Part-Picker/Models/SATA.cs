@@ -6,7 +6,7 @@ public class SATA
 	public string Name { get; set; }
 	public string Manufacturer { get; set; }
 	public byte[]? Image { get; set; }
-	public float Price { get; set; }
+	public double Price { get; set; }
 	public int Volume { get; set; }
 	public int Read_Speed { get; set; }
 	public int Write_Speed { get; set; }

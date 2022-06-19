@@ -6,7 +6,7 @@ public class CASE
 	public string Name { get; set; }
 	public string Manufacturer { get; set; }
 	public byte[]? Image { get; set; }
-	public float Price { get; set; }
+	public double Price { get; set; }
 	public string Form_Factor { get; set; }
 	public int Fan_Size { get; set; }
 	public int Fan_Count { get; set; }

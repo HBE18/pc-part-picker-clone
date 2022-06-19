@@ -6,7 +6,7 @@ public class MONITOR
     public string Name { get; set; }
     public string Manufacturer { get; set; }
     public byte[]? Image { get; set; }
-    public float Price { get; set; }
+    public double Price { get; set; }
     public string Panel_Type { get; set; }
     public int Refresh_Rate { get; set; }
     public string Resolution { get; set; }
@@ -15,5 +15,5 @@ public class MONITOR
     public int Brightness { get; set; }
     public bool Has_HDR { get; set; }
     public string? HDR_Version { get; set; }
-    public float Screen_Size { get; set; }
+    public double Screen_Size { get; set; }
 }

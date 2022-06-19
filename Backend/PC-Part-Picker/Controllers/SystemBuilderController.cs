@@ -15,7 +15,7 @@ namespace PC_Part_Picker.Controllers
 		public SystemBuilderController(ILogger<SystemBuilderController> logger)
 		{
 			_logger = logger;
-			string connectionString = "Data Source=PCRAGON;Initial Catalog=P3_DB;User ID=ppp_user;Password=123456;Encrypt=False;";
+			string connectionString = "Data Source=DESKTOP-HT3UAME;Initial Catalog=P3_DB;User ID=ppp_user;Password=123456;Encrypt=False;";
 			_connection = new SqlConnection(connectionString);
 			_connection.Open();
 		}
@@ -91,6 +91,245 @@ namespace PC_Part_Picker.Controllers
 				}
 			}
 			return cpus;
+		}
+
+		[HttpGet("coolers")]
+		public IEnumerable<CPU_COOLER> GetCoolers()
+		{
+			string query = "SELECT * FROM CPU_COOLER";
+			SqlCommand command = new SqlCommand(query, _connection);
+			SqlDataReader reader = command.ExecuteReader();
+			var coolers = new List<CPU_COOLER>();
+			if (reader.HasRows)
+			{
+				while (reader.Read())
+				{
+					CPU_COOLER cooler = new CPU_COOLER
+					{
+						Cooler_ID = reader.GetGuid("Cooler_ID"),
+						Name = reader.GetString("Name"),
+						Manufacturer = reader.GetString("Manufacturer"),
+						Price = reader.GetDouble("Price"),
+						Fan_Size = reader.GetInt32("Fan_Size"),
+						Type = reader.GetString("Type"),
+						Max_TDP = reader.GetInt32("Max_TDP"),
+						Fan_Count = reader.GetInt32("Fan_Count"),
+						Noise = reader.GetInt32("Noise")
+						
+						
+					};
+					coolers.Add(cooler);
+				}
+			}
+			return coolers;
+		}
+
+		[HttpGet("memories")]
+		public IEnumerable<MEMORY> GetMemory()
+		{
+			string query = "SELECT * FROM Memory";
+			SqlCommand command = new SqlCommand(query, _connection);
+			SqlDataReader reader = command.ExecuteReader();
+			var memories = new List<MEMORY>();
+			if (reader.HasRows)
+			{
+				while (reader.Read())
+				{
+					MEMORY memory = new MEMORY
+					{
+						Memory_ID = reader.GetGuid("Memory_ID"),
+						Name = reader.GetString("Name"),
+						Manufacturer = reader.GetString("Manufacturer"),
+						Price = reader.GetDouble("Price"),
+						Memory_Type = reader.GetString("Memory_Type"),
+						Memory_Frequency = reader.GetInt32("Memory_Frequency"),
+						Memory_Volume = reader.GetInt32("Memory_Volume"),
+						Memory_Count = reader.GetInt32("Memory_Count"),
+						Latency = reader.GetString("Latency")
+
+
+					};
+					memories.Add(memory);
+				}
+			}
+			return memories;
+		}
+
+		[HttpGet("gpus")]
+		public IEnumerable<GPU> GetGpus()
+		{
+			string query = "SELECT * FROM GPU";
+			SqlCommand command = new SqlCommand(query, _connection);
+			SqlDataReader reader = command.ExecuteReader();
+			var gpus = new List<GPU>();
+			if (reader.HasRows)
+			{
+				while (reader.Read())
+				{
+					GPU gpu = new GPU
+					{
+						GPU_ID = reader.GetGuid("GPU_ID"),
+						Name = reader.GetString("Name"),
+						Manufacturer = reader.GetString("Manufacturer"),
+						Price = reader.GetDouble("Price"),
+						Partner_Firm = reader.GetString("Partner_Firm"),
+						VRAM_Type = reader.GetString("VRAM_Type"),
+						VRAM_Volume = reader.GetInt32("VRAM_Volume"),
+						Family = reader.GetString("Family"),
+						Model = reader.GetString("Model"),
+						Recommended_Power = reader.GetInt32("Recommended_Power"),
+						Core_Count = reader.GetInt32("Core_Count"),
+						Core_Frequency = reader.GetInt32("Core_Freqeuncy"),
+						Boost_Frequency = reader.GetInt32("Boost_Frequency"),
+						Memory_Bandwidth = reader.GetInt32("Memory_Bandwidth"),
+						Memory_Frequency = reader.GetInt32("Memory_Frequency")
+
+
+					};
+					gpus.Add(gpu);
+				}
+			}
+			return gpus;
+		}
+
+		[HttpGet("cases")]
+		public IEnumerable<CASE> GetCases()
+        {
+			string query = "SELECT * FROM CCase";
+			SqlCommand command = new SqlCommand(query, _connection);
+			SqlDataReader reader = command.ExecuteReader();
+			var cases = new List<CASE>();
+			if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+					CASE c = new CASE
+					{
+						CASE_ID = reader.GetGuid("Case_ID"),
+						Name = reader.GetString("Name"),
+						Manufacturer = reader.GetString("Manufacturer"),
+						Price = reader.GetDouble("Price"),
+						Form_Factor = reader.GetString("Form_Factor"),
+						Fan_Size = reader.GetInt32("Fan_Size"),
+						Fan_Count = reader.GetInt32("Fan_Count"),
+						PSU_Inc = reader.GetBoolean("PSU_Inc"),
+						TemperedGlassPanel_Inc = reader.GetBoolean("TemperedGlassPanel_Inc"),
+						RGB_Inc = reader.GetBoolean("RGB_Inc")
+					};
+					cases.Add(c);
+                }
+            }
+
+			return cases;
+        }
+		
+
+		[HttpGet("psus")]
+		public IEnumerable<PSU> GetPsus()
+		{
+			string query = "SELECT * FROM PSU";
+			SqlCommand command = new SqlCommand(query, _connection);
+			SqlDataReader reader = command.ExecuteReader();
+			var psus = new List<PSU>();
+			if (reader.HasRows)
+			{
+				while (reader.Read())
+				{
+					PSU psu = new PSU
+					{
+						PSU_ID = reader.GetGuid("PSU_ID"),
+						Name = reader.GetString("Name"),
+						Manufacturer = reader.GetString("Manufacturer"),
+						Price = reader.GetDouble("Price"),
+						Sertificate = reader.GetString("Sertificate"),
+						Wattage = reader.GetInt32("Wattage"),
+						Is_Modular = reader.GetBoolean("Is_Modular")
+					};
+					psus.Add(psu);
+				}
+			}
+			return psus;
+		}
+
+		[HttpGet("monitors")]
+		public IEnumerable<MONITOR> GetMonitors()
+		{
+			string query = "SELECT * FROM Monitor";
+			SqlCommand command = new SqlCommand(query, _connection);
+			SqlDataReader reader = command.ExecuteReader();
+			var monitors = new List<MONITOR>();
+			if (reader.HasRows)
+			{
+				while (reader.Read())
+				{
+					MONITOR monitor = new MONITOR
+					{
+						Monitor_ID = reader.GetGuid("Monitor_ID"),
+						Name = reader.GetString("Name"),
+						Manufacturer = reader.GetString("Manufacturer"),
+						Price = reader.GetDouble("Price"),
+						Panel_Type = reader.GetString("Panel_Type"),
+						Refresh_Rate = reader.GetInt32("Refresh_Rate"),
+						Resolution = reader.GetString("Resolution"),
+						Sync = reader.GetString("Sync"),
+						Connection = reader.GetString("Connection"),
+						Brightness = reader.GetInt32("Brightness"),
+						Has_HDR = reader.GetBoolean("Has_HDR"),
+						Screen_Size = reader.GetDouble("Screen_Size")
+					};
+					monitors.Add(monitor);
+				}
+			}
+			return monitors;
+		}
+
+		[HttpGet("storages")]
+		public IEnumerable<Object> GetStorages()
+		{
+			string query = "SELECT * FROM M2";
+			SqlCommand command = new SqlCommand(query, _connection);
+			SqlDataReader reader = command.ExecuteReader();
+			var storages = new List<Object>();
+			if (reader.HasRows)
+			{
+				while (reader.Read())
+				{
+					M2 m2 = new M2
+					{
+						M2_ID = reader.GetGuid("M2_ID"),
+						Name = reader.GetString("Name"),
+						Manufacturer = reader.GetString("Manufacturer"),
+						Price = reader.GetDouble("Price"),
+						Volume = reader.GetInt32("Volume"),
+						Read_Speed = reader.GetInt32("Read_Speed"),
+						Write_Speed = reader.GetInt32("Write_Speed"),
+						PCIe_Version = reader.GetDouble("PCIe_Version")
+					};
+					storages.Add(m2);
+				}
+			}
+			reader.Close();
+			query = "SELECT * FROM SATA";
+			command = new SqlCommand(query, _connection);
+			reader = command.ExecuteReader();
+			if (reader.HasRows)
+			{
+				while (reader.Read())
+				{
+					SATA sata = new SATA
+					{
+						SATA_ID = reader.GetGuid("SATA_ID"),
+						Name = reader.GetString("Name"),
+						Manufacturer = reader.GetString("Manufacturer"),
+						Price = reader.GetDouble("Price"),
+						Volume = reader.GetInt32("Volume"),
+						Read_Speed = reader.GetInt32("Read_Speed"),
+						Write_Speed = reader.GetInt32("Write_Speed")
+					};
+					storages.Add(sata);
+				}
+			}
+		return storages;
 		}
 	}
 }

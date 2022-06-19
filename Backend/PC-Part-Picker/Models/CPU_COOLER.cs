@@ -6,7 +6,7 @@ public class CPU_COOLER
 	public string Name { get; set; }
 	public string Manufacturer { get; set; }
 	public byte[]? Image { get; set; }
-	public float Price { get; set; }
+	public double Price { get; set; }
 	public int Fan_Size { get; set; }
 	public string Type { get; set; }
 	public int Max_TDP { get; set; }

@@ -6,7 +6,7 @@ public class MEMORY
 	public string Name { get; set; }
 	public string Manufacturer { get; set; }
 	public byte[]? Image { get; set; }
-	public float Price { get; set; }
+	public double Price { get; set; }
 	public string Memory_Type { get; set; }
 	public int Memory_Frequency { get; set; }
 	public int Memory_Volume { get; set; }

@@ -113,7 +113,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [COMMON].[Case](
+CREATE TABLE [COMMON].[CCase](
 	[Case_ID] [uniqueidentifier] NOT NULL,
 	[Manufacturer] [varchar](20) NOT NULL,
 	[Name] [varchar](50) NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE [COMMON].[Case](
 	[Wattage] [int] NULL,
 	[TemperedGlassPanel_Inc] [bit] NOT NULL,
 	[RGB_Inc] [bit] NOT NULL,
- CONSTRAINT [PK_Case] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_CCase] PRIMARY KEY CLUSTERED 
 (
 	[Case_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
@@ -199,7 +199,7 @@ CREATE TABLE [COMMON].[GPU](
 	[Model] [varchar](15) NOT NULL,
 	[Recommended_Power] [int] NOT NULL,
 	[Core_Count] [int] NOT NULL,
-	[Core_Freqeuncy] [int] NOT NULL,
+	[Core_Frequency] [int] NOT NULL,
 	[Boost_Frequency] [int] NOT NULL,
 	[Memory_Bandwidth] [int] NOT NULL,
 	[Memory_Frequency] [int] NOT NULL,
@@ -377,9 +377,9 @@ INSERT [AUTH].[USERS] ([User_ID], [Username], [email], [password]) VALUES (N'5db
 GO
 INSERT [AUTH].[USERS] ([User_ID], [Username], [email], [password]) VALUES (N'5efe2fb5-8acd-49dd-9d87-ad0a0b2e9dca', N'Admin', N'admin@p3.com', N'yourStrongPassword')
 GO
-INSERT [COMMON].[Case] ([Case_ID], [Manufacturer], [Name], [Image], [Price], [Form_Factor], [Fan_Size], [Fan_Count], [PSU_Inc], [Wattage], [TemperedGlassPanel_Inc], [RGB_Inc]) VALUES (N'93c02ded-3797-4b6a-a700-89a2bdb95dc1', N'Lian Li', N'O11 Dynamic Evo', NULL, 179.99, N'EATX', 120, 6, 0, NULL, 1, 1)
+INSERT [COMMON].[CCase] ([Case_ID], [Manufacturer], [Name], [Image], [Price], [Form_Factor], [Fan_Size], [Fan_Count], [PSU_Inc], [Wattage], [TemperedGlassPanel_Inc], [RGB_Inc]) VALUES (N'93c02ded-3797-4b6a-a700-89a2bdb95dc1', N'Lian Li', N'O11 Dynamic Evo', NULL, 179.99, N'EATX', 120, 6, 0, NULL, 1, 1)
 GO
-INSERT [COMMON].[Case] ([Case_ID], [Manufacturer], [Name], [Image], [Price], [Form_Factor], [Fan_Size], [Fan_Count], [PSU_Inc], [Wattage], [TemperedGlassPanel_Inc], [RGB_Inc]) VALUES (N'068ba998-2ad1-4ace-947f-c2960d470df9', N'Antec', N'DF700 Flux', NULL, 102.99, N'ATX', 120, 4, 0, NULL, 1, 1)
+INSERT [COMMON].[CCase] ([Case_ID], [Manufacturer], [Name], [Image], [Price], [Form_Factor], [Fan_Size], [Fan_Count], [PSU_Inc], [Wattage], [TemperedGlassPanel_Inc], [RGB_Inc]) VALUES (N'068ba998-2ad1-4ace-947f-c2960d470df9', N'Antec', N'DF700 Flux', NULL, 102.99, N'ATX', 120, 4, 0, NULL, 1, 1)
 GO
 INSERT [COMMON].[CPU] ([CPU_ID], [Socket], [CoreCount], [Frequency], [Manufacturer], [CacheSize], [CoolerInc], [TDP], [Family], [Architecture], [ModelNo], [Image], [Name], [BoostFrequency], [Price]) VALUES (N'f1fc81b4-1944-4697-b73f-5c78f1764ade', N'AM4', 6, 3.7, N'AMD', 32, 1, 65, N'Vermeer', N'Zen 3 ', N'5600X', NULL, N'Ryzen 5 5600X', 4.6, 199.99)
 GO
@@ -389,13 +389,13 @@ INSERT [COMMON].[CPU_COOLER] ([Cooler_ID], [Name], [Manufacturer], [Image], [Pri
 GO
 INSERT [COMMON].[CPU_COOLER] ([Cooler_ID], [Name], [Manufacturer], [Image], [Price], [Fan_Size], [Type], [Max_TDP], [Fan_Count], [Noise]) VALUES (N'0f2f76be-4f7c-4139-9793-94f6990ecf3e', N'GALAHAD AIO 360 RGB UNI FAN SL120 EDITION ', N'Lian Li', NULL, 175.9, 120, N'Water Cooling', 120, 3, 32)
 GO
-INSERT [COMMON].[GPU] ([GPU_ID], [Name], [Price], [Image], [Manufacturer], [Partner_Firm], [VRAM_Type], [VRAM_Volume], [Family], [Model], [Recommended_Power], [Core_Count], [Core_Freqeuncy], [Boost_Frequency], [Memory_Bandwith], [Memory_Frequency]) VALUES (N'2f4952f7-5260-4ef6-aa9f-a0add5f7d15e', N'GeForce RTX 3080', 978.58, NULL, N'NVIDIA', N'Palit', N'GDDR6X', 10240, N'RTX 3000', N'3080', 320, 8704, 1440, 1740, 760, 19000)
+INSERT [COMMON].[GPU] ([GPU_ID], [Name], [Price], [Image], [Manufacturer], [Partner_Firm], [VRAM_Type], [VRAM_Volume], [Family], [Model], [Recommended_Power], [Core_Count], [Core_Frequency], [Boost_Frequency], [Memory_Bandwidth], [Memory_Frequency]) VALUES (N'2f4952f7-5260-4ef6-aa9f-a0add5f7d15e', N'GeForce RTX 3080', 978.58, NULL, N'NVIDIA', N'Palit', N'GDDR6X', 10240, N'RTX 3000', N'3080', 320, 8704, 1440, 1740, 760, 19000)
 GO
-INSERT [COMMON].[GPU] ([GPU_ID], [Name], [Price], [Image], [Manufacturer], [Partner_Firm], [VRAM_Type], [VRAM_Volume], [Family], [Model], [Recommended_Power], [Core_Count], [Core_Freqeuncy], [Boost_Frequency], [Memory_Bandwith], [Memory_Frequency]) VALUES (N'1537bf80-ee2a-4923-b7e0-b93b2766a67b', N'Radeon RX 6600 XT Speedster SWFT 210', 359.99, NULL, N'AMD', N'XFX', N'GDDR6', 8192, N'RX 6000', N'6600', 160, 32, 2092, 2589, 256, 16000)
+INSERT [COMMON].[GPU] ([GPU_ID], [Name], [Price], [Image], [Manufacturer], [Partner_Firm], [VRAM_Type], [VRAM_Volume], [Family], [Model], [Recommended_Power], [Core_Count], [Core_Frequency], [Boost_Frequency], [Memory_Bandwidth], [Memory_Frequency]) VALUES (N'1537bf80-ee2a-4923-b7e0-b93b2766a67b', N'Radeon RX 6600 XT Speedster SWFT 210', 359.99, NULL, N'AMD', N'XFX', N'GDDR6', 8192, N'RX 6000', N'6600', 160, 32, 2092, 2589, 256, 16000)
 GO
-INSERT [COMMON].[M2] ([M2_ID], [Name], [Manufacturer], [Image], [Price], [Volume], [Read_Speed], [Write_Speed], [PCI_Version]) VALUES (N'cc560a26-b65c-40fd-b0cb-0ba2e3f44e2f', N'Rocket', N'Sabrent', NULL, 129.99, 1024, 5000, 4400, 4)
+INSERT [COMMON].[M2] ([M2_ID], [Name], [Manufacturer], [Image], [Price], [Volume], [Read_Speed], [Write_Speed], [PCIe_Version]) VALUES (N'cc560a26-b65c-40fd-b0cb-0ba2e3f44e2f', N'Rocket', N'Sabrent', NULL, 129.99, 1024, 5000, 4400, 4)
 GO
-INSERT [COMMON].[M2] ([M2_ID], [Name], [Manufacturer], [Image], [Price], [Volume], [Read_Speed], [Write_Speed], [PCI_Version]) VALUES (N'caa4a3ba-5173-43a1-8aae-1cf214e15cda', N'Green', N'Western Digital', NULL, 74.98, 960, 2400, 1900, 3)
+INSERT [COMMON].[M2] ([M2_ID], [Name], [Manufacturer], [Image], [Price], [Volume], [Read_Speed], [Write_Speed], [PCIe_Version]) VALUES (N'caa4a3ba-5173-43a1-8aae-1cf214e15cda', N'Green', N'Western Digital', NULL, 74.98, 960, 2400, 1900, 3)
 GO
 INSERT [COMMON].[Memory] ([Memory_ID], [Name], [Manufacturer], [Image], [Price], [Memory_Type], [Memory_Frequency], [Memory_Volume], [Memory_Count], [Latency]) VALUES (N'd39b9230-ed95-49c1-9a70-36e103ceff22', N'Vengance LPX', N'Corsair', NULL, 76.99, N'DDR4', 3600, 8, 2, N'CL16')
 GO
@@ -413,10 +413,10 @@ INSERT [COMMON].[PSU] ([PSU_ID], [Name], [Manufacturer], [Image], [Price], [Sert
 GO
 INSERT [COMMON].[SATA] ([SATA_ID], [Name], [Manufacturer], [Image], [Price], [Volume], [Read_Speed], [Write_Speed], [RPM]) VALUES (N'7c549ca2-9d85-4c4e-8c98-6b33a51f0883', N'Red Plus', N'Western Digital', NULL, 208.93, 8192, 210, 180, 7200)
 GO
-ALTER TABLE [LT_COMMON].[BUILD]  WITH CHECK ADD  CONSTRAINT [FK_BUILD_Case] FOREIGN KEY([Case_ID])
-REFERENCES [COMMON].[Case] ([Case_ID])
+ALTER TABLE [LT_COMMON].[BUILD]  WITH CHECK ADD  CONSTRAINT [FK_BUILD_CCase] FOREIGN KEY([Case_ID])
+REFERENCES [COMMON].[CCase] ([Case_ID])
 GO
-ALTER TABLE [LT_COMMON].[BUILD] CHECK CONSTRAINT [FK_BUILD_Case]
+ALTER TABLE [LT_COMMON].[BUILD] CHECK CONSTRAINT [FK_BUILD_CCase]
 GO
 ALTER TABLE [LT_COMMON].[BUILD]  WITH CHECK ADD  CONSTRAINT [FK_BUILD_CPU] FOREIGN KEY([CPU_ID])
 REFERENCES [COMMON].[CPU] ([CPU_ID])
@@ -471,4 +471,12 @@ GO
 USE [master]
 GO
 ALTER DATABASE [P3_DB] SET  READ_WRITE 
+GO
+USE [P3_DB]
+GO
+ALTER ROLE [db_datareader] ADD MEMBER [ppp_user]
+GO
+USE [P3_DB]
+GO
+ALTER ROLE [db_datawriter] ADD MEMBER [ppp_user]
 GO
