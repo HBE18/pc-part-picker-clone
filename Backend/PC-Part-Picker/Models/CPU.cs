@@ -6,15 +6,15 @@ public class CPU
 	public string Name { get; set; }
 	public string Socket { get; set; }
 	public int CoreCount { get ; set; }
-	public float Frequency { get; set; }
+	public double Frequency { get; set; }
 	public string Manufacturer { get; set; }
-	public float CacheSize { get; set; }
+	public double CacheSize { get; set; }
 	public bool CoolerInc { get; set; }
 	public int TDP { get; set; }
 	public string? Family { get; set; }
 	public string? Architecture { get; set; }
 	public string? ModelNo { get; set; }
 	public byte[]? Image { get; set; }
-	public float BoostFrequency { get; set; }
-	public float Price { get; set; }
+	public double BoostFrequency { get; set; }
+	public double Price { get; set; }
 }

@@ -7,10 +7,10 @@ namespace PC_Part_Picker.Controllers
     [Route("users")]
     public class UserController : Controller
     {
-        public class user
+        public class User
         {
-            public string uname { get; set; }
-            public string pass { get; set; }
+            public string username { get; set; }
+            public string password { get; set; }
         }
 
         private readonly ILogger<UserController> _logger;
@@ -21,10 +21,10 @@ namespace PC_Part_Picker.Controllers
         }
 
         [HttpPost]
-        public string login_user(user us) 
+        public string login_user(User us) 
         {
-            string un = us.uname;
-            string pw = us.pass;
+            string un = us.username;
+            string pw = us.password;
 
             return un + "____" + pw;
         }

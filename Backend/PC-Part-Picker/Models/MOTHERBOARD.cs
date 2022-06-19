@@ -9,14 +9,14 @@ public class MOTHERBOARD
 	public int MemorySlot_Count { get; set; }
 	public int Memory_Frequency { get; set; }
 	public string? SoundCard { get; set; }
-	public float PCIe_Version { get; set; }
+	public double PCIe_Version { get; set; }
 	public string PCIe_Max { get; set; }
 	public int M2_Count { get; set; }
 	public int SATA_Count { get; set; }
-	public float USB_Version { get; set; }
+	public double USB_Version { get; set; }
 	public byte[]? Image { get; set; }
 	public string Memory_Type { get; set; }
 	public string Form_Factor { get; set; }
 	public string Name { get; set; }
-	public float Price { get; set; }
+	public double Price { get; set; }
 }
