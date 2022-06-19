@@ -1,9 +1,9 @@
-﻿namespace PC_Part_Picker.Models
+﻿namespace PC_Part_Picker.Models;
 
 public class MOTHERBOARD
 {
 	public Guid MotherBoard_ID { get; set; }
-	public string Manıfacturer { get; set; }
+	public string Manufacturer { get; set; }
 	public string MotherBoard_Socket { get; set; }
 	public string Chipset { get; set; }
 	public int MemorySlot_Count { get; set; }
