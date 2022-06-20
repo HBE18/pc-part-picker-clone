@@ -3012,19 +3012,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\disco\\.nuget\\packages\\": {}
+    "C:\\Users\\ramaz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\webapp\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj",
+      "projectUniqueName": "C:\\Users\\ramaz\\Documents\\GitHub\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj",
       "projectName": "PC-Part-Picker",
-      "projectPath": "D:\\webapp\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj",
-      "packagesPath": "C:\\Users\\disco\\.nuget\\packages\\",
-      "outputPath": "D:\\webapp\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\obj\\",
+      "projectPath": "C:\\Users\\ramaz\\Documents\\GitHub\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj",
+      "packagesPath": "C:\\Users\\ramaz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ramaz\\Documents\\GitHub\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\disco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ramaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3085,7 +3085,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

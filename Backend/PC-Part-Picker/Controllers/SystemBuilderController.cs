@@ -17,7 +17,7 @@ namespace PC_Part_Picker.Controllers
 		public SystemBuilderController(ILogger<SystemBuilderController> logger)
 		{
 			_logger = logger;
-			string connectionString = "Data Source=DESKTOP-HT3UAME;Initial Catalog=P3_DB;User ID=ppp_user;Password=123456;Encrypt=False;";
+			string connectionString = "Data Source=localhost;Initial Catalog=P3_DB;User ID=ppp_user;Password=123456;Encrypt=False;";
 			_connection = new SqlConnection(connectionString);
 			_connection.Open();
 		}
@@ -182,7 +182,7 @@ namespace PC_Part_Picker.Controllers
 						Model = reader.GetString("Model"),
 						Recommended_Power = reader.GetInt32("Recommended_Power"),
 						Core_Count = reader.GetInt32("Core_Count"),
-						Core_Frequency = reader.GetInt32("Core_Freqeuncy"),
+						Core_Frequency = reader.GetInt32("Core_Frequency"),
 						Boost_Frequency = reader.GetInt32("Boost_Frequency"),
 						Memory_Bandwidth = reader.GetInt32("Memory_Bandwidth"),
 						Memory_Frequency = reader.GetInt32("Memory_Frequency")

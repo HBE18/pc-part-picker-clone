@@ -1,11 +1,23 @@
-/* function cpus() {
-    const content = document.getElementById("content-cpu");
-    content.innerHTML = "My Super CPU";
+let price = document.querySelector("#price");
+const build = {
+    cpu:null,
+    cooler:null,
+    motherboard:null,
+    memory:null,
+    storage:null,
+    gpu:null,
+    case:null,
+    psu:null,
+    monitor:null
+};
+
+function addPrice(num){
+    price.innerHTML = `${(Number(price.innerHTML)+num).toFixed(2)}`;
 }
 
-function myFunction() {
-    document.getElementById("mbDropdown").classList.toggle("show");
-} */
+function minPrice(num){
+    price.innerHTML = `${(Number(price.innerHTML)-num).toFixed(2)}`;
+}
 
 window.onclick = function (event) {
     if (!event.target.matches('.dropbtn')) {
@@ -33,7 +45,7 @@ window.onclick = function (event) {
 }
 
 async function getDropdownItems(dropdownIDs){
-    const link = "localhost:5089/systemBuilder"
+    const link = "http://localhost:5089/systemBuilder"
     results = await Promise.all([
         fetch(`${link}/cpus`, {
             method: "GET",
@@ -84,7 +96,7 @@ async function getDropdownItems(dropdownIDs){
                 "Access-Control-Allow-Origin": "*"
             }
         }),
-        fetch(`${link}/powers`, {
+        fetch(`${link}/psus`, {
             method: "GET",
             mode: "cors",
             headers: {
@@ -106,17 +118,57 @@ async function getDropdownItems(dropdownIDs){
 
     for (let index = 0; index < dropdownIDs.length; index++) {
         const element = dropdownIDs[index];
-        const obj = finalData[index];
-        const drp = document.querySelector(element);
-        const elementType = element.split("Dropdown")[0];
+        const objs = finalData[index];
+        for(const obj of objs){
+            const drp = document.querySelector(element);
+        const elementType = element.split("Dropdown")[0].split("#")[1];
 
         var a = document.createElement("a");
-        a.innerHTML = obj.Name;
+        a.innerHTML = obj.name;
         a.onclick = () => {
             const liMb = document.querySelector(`#${elementType}`);
             const drpMb = document.querySelector(`#drp${elementType}`);
             let span = document.createElement("span");
-            span.textContent = a.innerHTML;
+            span.id = `s${elementType}`;
+            switch (elementType) {
+                case 'cpu':
+                    build.cpu = obj;
+                    break;
+            
+                case 'cooler':
+                    build.cooler = obj;
+                    break;
+            
+                case 'motherboard':
+                    build.motherboard = obj;
+                    break;
+            
+                case 'memory':
+                    build.memory = obj;
+                    break;
+            
+                case 'storage':
+                    build.storage = obj;
+                    break;
+            
+                case 'gpu':
+                    build.gpu = obj;
+                    break;
+            
+                case 'case':
+                    build.case = obj;
+                    break;
+            
+                case 'power':
+                    build.power = obj;
+                    break;
+            
+                case 'monitor':
+                    build.monitor = obj;
+                    break;
+            }
+            addPrice(obj.price);
+            span.textContent = obj.name;
             liMb.replaceChild(span, drpMb);
             let myA = document.createElement("a");
             myA.textContent = "edit";
@@ -125,11 +177,52 @@ async function getDropdownItems(dropdownIDs){
             myA.onclick = () => {
                 liMb.replaceChild(drpMb, span);
                 liMb.removeChild(myA);
+                minPrice(obj.price);
+                switch (elementType) {
+                    case 'cpu':
+                        build.cpu = null;
+                        break;
+                
+                    case 'cooler':
+                        build.cooler = null;
+                        break;
+                
+                    case 'motherboard':
+                        build.motherboard = null;
+                        break;
+                
+                    case 'memory':
+                        build.memory = null;
+                        break;
+                
+                    case 'storage':
+                        build.storage = null;
+                        break;
+                
+                    case 'gpu':
+                        build.gpu = null;
+                        break;
+                
+                    case 'case':
+                        build.case = null;
+                        break;
+                
+                    case 'power':
+                        build.power = null;
+                        break;
+                
+                    case 'monitor':
+                        build.monitor = null;
+                        break;
+                }
             }
             liMb.appendChild(myA);
         }
 
         drp.appendChild(a);
+        }
+
+        
     }
 }
 
