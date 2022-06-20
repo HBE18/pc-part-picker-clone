@@ -1,0 +1,1 @@
+:r /usr/init_db/init-sql-scripts/CreationScript.sql
