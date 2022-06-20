@@ -19,6 +19,11 @@ function minPrice(num){
     price.innerHTML = `${(Number(price.innerHTML)-num).toFixed(2)}`;
 }
 
+function saveBuild(){
+    console.log(build);
+}
+
+
 window.onclick = function (event) {
     if (!event.target.matches('.dropbtn')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");

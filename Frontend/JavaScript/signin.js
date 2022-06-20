@@ -7,28 +7,22 @@ addEventListener("submit", async (ev) => {
         email: user_email.value,
         password: user_password.value
     }
-    await fetch(`http://25.33.228.221:3000/login`, {
-        method: "POST",
+    await fetch(`http://localhost:5089/user?email=${user.email}&password=${user.password}`, {
+        method: "GET",
         mode: "cors",
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(user)
-    }).then(res => {
+
+    }).then(async res => {
         let stat = res.status;
         if (stat === 200) {
             window.location.replace("index.html");
         }
-        else if(stat === 404)
-        {
-            alert("Email or password is invalid");
-        }
         else if(stat === 400) {
-            console.error("Email or password is not string");
-        }
-        else if(stat === 401) {
-            alert("This user's password is different");
+            var perror = await res.text();
+            alert(perror);
         }
     })
 })

@@ -10,7 +10,7 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="CSS/systemBuilder.css">
   <link rel="stylesheet" href="CSS/main.css">
-  <link rel="icon" type="image/x-icon" href="/Frontend/Images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="Images/favicon.png">
 </head>
 
 <body>
@@ -23,8 +23,8 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse ourDiv" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" id = "nav-ul">
         <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Homepage</a>
         </li> -->
@@ -118,9 +118,11 @@
     </li>
     </ul>
     <hr>
-    <h2 style="margin-left: 20%;">Price: $<span id="price">0</span></h2><button class="btn btn-success"
-      style="margin-left: 80%; height:50px; width:120px;">Save</button>
-    <a href="/" class="btn btn-danger"
+    <h2 style="margin-left: 20%;">Price: $<span id="price">0</span></h2>
+    <a class="btn btn-success" style="margin-left: 80%; height:50px; width:120px;" onclick="saveBuild()">Save</a>
+    <a href="systemBuilder.html" class="btn btn-info"
+      style="text-align: center; margin-top: 2%; margin-left: 80%; height:50px; width:120px;">Reset Build</a>
+    <a href="index.html" class="btn btn-danger"
       style="text-align: center; margin-top: 2%; margin-left: 80%; height:50px; width:120px;">Cancel</a>
 
     <!-- Table -->
@@ -155,6 +157,7 @@
       crossorigin="anonymous"></script>
     <script src="JavaScript/systemBuilder.js"></script>
     <noscript>Sorry, your browser does not support JavaScript!</noscript>
+    <script src="JavaScript/app.js"></script>
 </body>
 
 </html>

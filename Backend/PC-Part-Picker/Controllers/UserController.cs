@@ -6,6 +6,7 @@ using System.Data;
 
 namespace PC_Part_Picker.Controllers
 {
+    [EnableCors("cors_allow")]
     [ApiController]
     [Route("user")]
     public class UserController : Controller
@@ -32,7 +33,7 @@ namespace PC_Part_Picker.Controllers
         [HttpGet]
         public ActionResult GetUser(string email, string password)
         {
-            string query = "SELECT * FROM USERS WHERE email=" + email;
+            string query = "SELECT * FROM [AUTH].[USERS] WHERE email=\'" + email +"\'";
             SqlCommand command = new SqlCommand(query, _connection);
             SqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
@@ -56,7 +57,7 @@ namespace PC_Part_Picker.Controllers
                     }
                 }
             }
-            return BadRequest("No User");
+            return BadRequest("There is no such an email.");
         }
 
         [EnableCors("cors_allow")]

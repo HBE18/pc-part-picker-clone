@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Codes\\C#\\WebApp\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj": {}
+    "C:\\Users\\ramaz\\Documents\\GitHub\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj": {}
   },
   "projects": {
-    "D:\\Codes\\C#\\WebApp\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj": {
+    "C:\\Users\\ramaz\\Documents\\GitHub\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Codes\\C#\\WebApp\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj",
+        "projectUniqueName": "C:\\Users\\ramaz\\Documents\\GitHub\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj",
         "projectName": "PC-Part-Picker",
-        "projectPath": "D:\\Codes\\C#\\WebApp\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj",
-        "packagesPath": "C:\\Users\\batuh\\.nuget\\packages\\",
-        "outputPath": "D:\\Codes\\C#\\WebApp\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\obj\\",
+        "projectPath": "C:\\Users\\ramaz\\Documents\\GitHub\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\PC-Part-Picker.csproj",
+        "packagesPath": "C:\\Users\\ramaz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ramaz\\Documents\\GitHub\\pc-part-picker-clone\\Backend\\PC-Part-Picker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\batuh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ramaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

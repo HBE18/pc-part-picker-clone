@@ -101,7 +101,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [AUTH].[USERS](
 	[User_ID] [uniqueidentifier] NOT NULL,
-	[Username] [varchar](30) NOT NULL,
 	[email] [varchar](100) NOT NULL,
 	[password] [text] NOT NULL,
  CONSTRAINT [PK_USERS_1] PRIMARY KEY CLUSTERED 
@@ -375,9 +374,9 @@ CREATE TABLE [LT_COMMON].[BUILD](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-INSERT [AUTH].[USERS] ([User_ID], [Username], [email], [password]) VALUES (N'5db1c092-1934-4399-a599-312999630487', N'User1', N'example@example.com', N'duperhard123')
+INSERT [AUTH].[USERS] ([User_ID],  [email], [password]) VALUES (N'5db1c092-1934-4399-a599-312999630487',  N'example@example.com', N'duperhard123')
 GO
-INSERT [AUTH].[USERS] ([User_ID], [Username], [email], [password]) VALUES (N'5efe2fb5-8acd-49dd-9d87-ad0a0b2e9dca', N'Admin', N'admin@p3.com', N'yourStrongPassword')
+INSERT [AUTH].[USERS] ([User_ID],  [email], [password]) VALUES (N'5efe2fb5-8acd-49dd-9d87-ad0a0b2e9dca',  N'admin@p3.com', N'yourStrongPassword')
 GO
 INSERT [COMMON].[CCase] ([Case_ID], [Manufacturer], [Name], [Image], [Price], [Form_Factor], [Fan_Size], [Fan_Count], [PSU_Inc], [Wattage], [TemperedGlassPanel_Inc], [RGB_Inc]) VALUES (N'93c02ded-3797-4b6a-a700-89a2bdb95dc1', N'Lian Li', N'O11 Dynamic Evo', NULL, 179.99, N'EATX', 120, 6, 0, NULL, 1, 1)
 GO
