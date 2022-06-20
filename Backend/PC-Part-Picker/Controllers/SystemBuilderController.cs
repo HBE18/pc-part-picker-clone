@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using PC_Part_Picker.Models;
 using System.Data;
 
 namespace PC_Part_Picker.Controllers
 {
+    [EnableCors("cors_allow")]
 	[ApiController]
 	[Route("systemBuilder")]
 	public class SystemBuilderController : Controller
@@ -20,6 +22,7 @@ namespace PC_Part_Picker.Controllers
 			_connection.Open();
 		}
 
+		[EnableCors("cors_allow")]
 		[HttpGet("motherboards")]
 		public IEnumerable<MOTHERBOARD> GetMOTHERBOARD()
 		{
