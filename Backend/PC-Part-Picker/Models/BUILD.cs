@@ -14,5 +14,5 @@ public class BUILD
 	public Guid? PSU_ID { get; set; }
 	public Guid? Case_ID { get; set; }
 	public Guid User_ID { get; set; }
-	public float Price { get; set; }
+	public double Price { get; set; }
 }

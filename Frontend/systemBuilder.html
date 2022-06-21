@@ -49,10 +49,10 @@
 <div class="main">
   <h1 class="title"">System Builder</h1>
   <hr>
-
+    <h2 id = "compatibility">Compatibility:<span id="comp-val" style = "color: lime;">Compatible</span></h2>
     <ul>
       <li id="cpu">
-    CPU:
+    CPU*:
     <!-- <a id="content-cpu" onclick="cpus()">Please select a CPU</a> -->
     <div class="dropdown" id = "drpcpu">
       <button class="dropbtn">Select A CPU</button>
@@ -67,7 +67,7 @@
       </div>
     </li>
     <li id = "mb">
-      Motherboard:
+      Motherboard*:
 
       <div class="dropdown" id="drpmb" >
         <button class="dropbtn">Select A Motherboard</button>
@@ -75,7 +75,7 @@
       </div>
     </li>
     <li id = memory>
-      Memory:
+      Memory*:
       <div class="dropdown" id = "drpmemory">
         <button class="dropbtn">Select A Memory</button>
         <div id="memoryDropdown" class="dropdown-content"></div>
@@ -119,7 +119,7 @@
     </ul>
     <hr>
     <h2 style="margin-left: 20%;">Price: $<span id="price">0</span></h2>
-    <a class="btn btn-success" style="margin-left: 80%; height:50px; width:120px;" onclick="saveBuild()">Save</a>
+    <a class="btn btn-success" style="margin-left: 80%; height:50px; width:120px;visibility: hidden;" onclick="saveBuild()">Save</a>
     <a href="systemBuilder.html" class="btn btn-info"
       style="text-align: center; margin-top: 2%; margin-left: 80%; height:50px; width:120px;">Reset Build</a>
     <a href="index.html" class="btn btn-danger"

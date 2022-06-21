@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using PC_Part_Picker.Models;
+using PC_Part_Picker.Services;
 using System.Data;
 
 namespace PC_Part_Picker.Controllers
@@ -14,12 +15,7 @@ namespace PC_Part_Picker.Controllers
 
         private readonly ILogger<UserController> _logger;
         private readonly SqlConnection _connection;
-        private USER user = new USER
-        {
-            User_ID = Guid.NewGuid(),
-            email = "NULL",
-            password = "NULL",
-        };
+        UserService userService;
 
         public UserController(ILogger<UserController> logger)
         {
@@ -27,72 +23,37 @@ namespace PC_Part_Picker.Controllers
             string connectionString = "Data Source=localhost;Initial Catalog=P3_DB;User ID=ppp_user;Password=123456;Encrypt=False;";
             _connection = new SqlConnection(connectionString);
             _connection.Open();
+            userService = new UserService(_connection);
         }
 
         [EnableCors("cors_allow")]
         [HttpGet]
-        public ActionResult GetUser(string email, string password)
+        public async Task<ActionResult> GetUser(string email, string password)
         {
-            string query = "SELECT * FROM [AUTH].[USERS] WHERE email=\'" + email +"\'";
-            SqlCommand command = new SqlCommand(query, _connection);
-            SqlDataReader reader = command.ExecuteReader();
-            if (reader.HasRows)
+            string result = await userService.LogIn(email, password);
+            if (result.Equals("Password not matched") || result.Equals("There is no such an email."))
             {
-                while (reader.Read())
-                {
-                    string sys_password = reader.GetString("password");
-                    if(sys_password.Equals(password))
-                    {
-                        user = new USER
-                        {
-                            User_ID = reader.GetGuid("User_ID"),
-                            email = reader.GetString("email"),
-                            password = reader.GetString("password")
-                        };
-                        return Ok();
-                    }
-                    else
-                    {
-                        return BadRequest("Password not matched");
-                    }
-                }
-            }
-            return BadRequest("There is no such an email.");
-        }
-
-        [EnableCors("cors_allow")]
-        [HttpGet("auth")]
-        public ActionResult GetAuth()
-        {
-            if(!user.email.Equals("NULL") && !user.password.Equals("NULL"))
-            {
-                return Ok(user.User_ID);
+                return BadRequest(result);
             }
             else
             {
-                return BadRequest("User not authenticated");
+                return Ok(result);
             }
         }
 
         [EnableCors("cors_allow")]
         [HttpPost]
-        public ActionResult PostUser(string email, string password)
+        public async Task<ActionResult> PostUser(string email, string password)
         {
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "INSERT INTO USERS (User_ID, email, password) VALUES (@guid, @email, @password)";
-            command.Parameters.AddWithValue("@guid", Guid.NewGuid());
-            command.Parameters.AddWithValue("@email", email);
-            command.Parameters.AddWithValue("@password", password);
-            try
+            bool result = await userService.SignIn(email, password);
+            if (result)
             {
-                int recordsAffected = command.ExecuteNonQuery();
-                return Ok(recordsAffected);
+                return Ok();
             }
-            catch (SqlException e)
+            else
             {
-                return BadRequest(e.Message);
+                return BadRequest("An error occured");
             }
-
         }
     }
 }

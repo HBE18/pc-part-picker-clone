@@ -12,7 +12,7 @@ namespace PC_Part_Picker.Controllers
 	public class SystemBuilderController : Controller
 	{
 		private readonly ILogger<SystemBuilderController> _logger;
-		private readonly SqlConnection _connection;
+		private SqlConnection _connection;
 
 		public SystemBuilderController(ILogger<SystemBuilderController> logger)
 		{
@@ -61,7 +61,7 @@ namespace PC_Part_Picker.Controllers
 
 			return mbs;
 		}
-
+		[EnableCors("cors_allow")]
 		[HttpGet("cpus")]
 		public IEnumerable<CPU> GetCPUS()
 		{
@@ -95,7 +95,7 @@ namespace PC_Part_Picker.Controllers
 			}
 			return cpus;
 		}
-
+		[EnableCors("cors_allow")]
 		[HttpGet("coolers")]
 		public IEnumerable<CPU_COOLER> GetCoolers()
 		{
@@ -126,7 +126,7 @@ namespace PC_Part_Picker.Controllers
 			}
 			return coolers;
 		}
-
+		[EnableCors("cors_allow")]
 		[HttpGet("memories")]
 		public IEnumerable<MEMORY> GetMemory()
 		{
@@ -157,7 +157,7 @@ namespace PC_Part_Picker.Controllers
 			}
 			return memories;
 		}
-
+		[EnableCors("cors_allow")]
 		[HttpGet("gpus")]
 		public IEnumerable<GPU> GetGpus()
 		{
@@ -194,7 +194,7 @@ namespace PC_Part_Picker.Controllers
 			}
 			return gpus;
 		}
-
+		[EnableCors("cors_allow")]
 		[HttpGet("cases")]
 		public IEnumerable<CASE> GetCases()
 		{
@@ -226,7 +226,7 @@ namespace PC_Part_Picker.Controllers
 			return cases;
 		}
 
-
+		[EnableCors("cors_allow")]
 		[HttpGet("psus")]
 		public IEnumerable<PSU> GetPsus()
 		{
@@ -253,7 +253,7 @@ namespace PC_Part_Picker.Controllers
 			}
 			return psus;
 		}
-
+		[EnableCors("cors_allow")]
 		[HttpGet("monitors")]
 		public IEnumerable<MONITOR> GetMonitors()
 		{
@@ -285,7 +285,7 @@ namespace PC_Part_Picker.Controllers
 			}
 			return monitors;
 		}
-
+		[EnableCors("cors_allow")]
 		[HttpGet("storages")]
 		public IEnumerable<Object> GetStorages()
 		{
@@ -335,37 +335,50 @@ namespace PC_Part_Picker.Controllers
 			return storages;
 		}
 
-
-		[HttpPost()]
-		public ActionResult postBuild(Guid userID, Guid price,Guid cpuID, Guid coolerID, Guid motherboardID, Guid memoryID, STORAGE storage, Guid gpuID, Guid caseID, Guid psuID, Guid monitorID)
+		[EnableCors("cors_allow")]
+		[HttpPost]
+		public ActionResult postBuild([FromQuery] string name,[FromQuery]Guid userID, [FromQuery]double price, [FromQuery]Guid cpuID, [FromQuery]Guid coolerID, [FromQuery] Guid motherboardID, [FromQuery] Guid memoryID, [FromQuery] Guid gpuID, [FromQuery] Guid caseID, [FromQuery] Guid psuID, [FromQuery] Guid monitorID, [FromQuery] Guid m2ID, [FromQuery] Guid sataID, [FromQuery] string storageT)
 		{
-			string storageType = storage is M2 ? "M2_ID" : "SATA_ID";
+			Console.WriteLine(caseID);
+			string storageType = storageT.Equals("M2") ? "M2_ID" : "SATA_ID";
+			Guid storageVal;
+			if(storageT.Equals("M2"))
+			{
+				storageVal = m2ID;
+			}
+			else
+			{
+				storageVal = sataID;
+			}
 			SqlCommand command = new SqlCommand();
-			command.CommandText = "INSERT INTO BUILD (" +
+			command.Connection = _connection;
+			command.CommandText = "INSERT INTO [LT_COMMON].[BUILD] (" +
                 "Build_ID, " +
                 "CPU_ID, " +
-                "Cooler_ID, " +
                 "MotherBoard_ID, " +
                 "Memory_ID, " + 
+				"GPU_ID, " +
+                "Cooler_ID, " +
 				storageType + 
-				", GPU_ID, " +
-                "Case_ID, " +
+                ", Monitor_ID, " +
                 "PSU_ID, " +
-                "Monitor_ID, " +
+                "Case_ID, " +
                 "User_ID, " +
+				"Name, "
                 "Price) " +
-                "VALUES (@buildID, @cpuID, @coolerID, @motherboardID, @memoryID, @storageID, @gpuID, @caseID, @psuID, @monitorID, @userID, @price)";
+				"VALUES (@buildID, @cpuID, @motherboardID, @memoryID, @gpuID, @coolerID, @storageID, @monitorID, @psuID, @caseID, @userID,@name , @price);";
 			command.Parameters.AddWithValue("@buildID", Guid.NewGuid());
 			command.Parameters.AddWithValue("@cpuID", cpuID);
 			command.Parameters.AddWithValue("@coolerID", coolerID);
 			command.Parameters.AddWithValue("@motherboardID", motherboardID);
 			command.Parameters.AddWithValue("@memoryID", memoryID);
-			command.Parameters.AddWithValue("@storageID", storageType.Equals("M2_ID") ? (storage as M2).M2_ID : (storage as SATA).SATA_ID);
+			command.Parameters.AddWithValue("@storageID", storageVal);
 			command.Parameters.AddWithValue("@gpuID", gpuID);
 			command.Parameters.AddWithValue("@caseID", caseID);
 			command.Parameters.AddWithValue("@psuID", psuID);
 			command.Parameters.AddWithValue("@monitorID", monitorID);
 			command.Parameters.AddWithValue("@userID", userID);
+			command.Parameters.AddWithValue("@name", name);
 			command.Parameters.AddWithValue("@price", price);
 			
 			try
