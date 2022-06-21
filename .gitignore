@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Backend/PC-Part-Picker/.vs/PC-Part-Picker/DesignTimeBuild/.dtbcache.v2
+Backend/PC-Part-Picker/.vs/PC-Part-Picker/v17/.futdcache.v1
+Backend/PC-Part-Picker/.vs/PC-Part-Picker/v17/.suo
