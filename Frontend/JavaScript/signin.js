@@ -19,10 +19,8 @@ addEventListener("submit", async (ev) => {
         let stat = res.status;
         if (stat === 200) {
             let uID = await res.text();
-            console.log(uID);
             sessionStorage.setItem("uID", uID);
             sessionStorage.setItem("auth", true);
-            console.log(sessionStorage.getItem("auth"));
             window.location.replace("index.html");
         }
         else if(stat === 400) {

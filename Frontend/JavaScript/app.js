@@ -9,6 +9,8 @@ const func = () => {
     if(isAuth)
         {
             let ourUl = document.querySelector("#nav-ul");
+            let myBuilds = document.querySelector("#mybuilds");
+            myBuilds.style.visibility = "visible";
             ul.removeChild(login);
             register.setAttribute("href", "index.html");
             register.setAttribute("onClick","clk()");

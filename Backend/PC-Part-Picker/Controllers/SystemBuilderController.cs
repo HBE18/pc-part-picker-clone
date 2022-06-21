@@ -364,7 +364,7 @@ namespace PC_Part_Picker.Controllers
                 "PSU_ID, " +
                 "Case_ID, " +
                 "User_ID, " +
-				"Name, "
+				"Name, " +
                 "Price) " +
 				"VALUES (@buildID, @cpuID, @motherboardID, @memoryID, @gpuID, @coolerID, @storageID, @monitorID, @psuID, @caseID, @userID,@name , @price);";
 			command.Parameters.AddWithValue("@buildID", Guid.NewGuid());

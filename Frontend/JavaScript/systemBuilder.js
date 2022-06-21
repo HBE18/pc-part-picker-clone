@@ -314,6 +314,20 @@ function isCompatible() {
                         flag = false;
                     }
                     break;
+                case "motherboard":
+                    if(!build["memory"] === null)
+                        if(!build["motherboard"].memory_Type === build["memory"].memory_Type){
+                            flag = false;
+                        }
+                    break;
+                case "psu":
+                    if(!build["psu"] === null)
+                        if(!(build["gpu"].recommended_Power + 150) > build["psu"].wattage){
+                            flag = false;
+                        }
+                    break;
+                default:
+                    break;
             }
         }
       });

@@ -45,14 +45,14 @@ namespace PC_Part_Picker.Controllers
         [HttpPost]
         public async Task<ActionResult> PostUser(string email, string password)
         {
-            bool result = await userService.SignIn(email, password);
-            if (result)
+            string result = userService.SignUp(email, password);
+            if (!result.StartsWith("Error"))
             {
-                return Ok();
+                return Ok(result);
             }
             else
             {
-                return BadRequest("An error occured");
+                return BadRequest(result);
             }
         }
     }

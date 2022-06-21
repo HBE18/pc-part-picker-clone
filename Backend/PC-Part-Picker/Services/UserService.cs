@@ -40,21 +40,23 @@ namespace PC_Part_Picker.Services
         }
 
         [EnableCors("cors_allow")]
-        public async Task<bool> SignIn(string email, string password)
+        public string SignUp(string email, string password)
         {
+            Guid newGu = Guid.NewGuid();
             SqlCommand command = new SqlCommand();
-            command.CommandText = "INSERT INTO USERS (User_ID, email, password) VALUES (@guid, @email, @password)";
-            command.Parameters.AddWithValue("@guid", Guid.NewGuid());
+            command.Connection = _connection;
+            command.CommandText = "INSERT INTO [AUTH].[USERS] (User_ID, email, password) VALUES (@guid, @email, @password)";
+            command.Parameters.AddWithValue("@guid", newGu);
             command.Parameters.AddWithValue("@email", email);
             command.Parameters.AddWithValue("@password", password);
             try
             {
-                int recordsAffected = await command.ExecuteNonQueryAsync();
-                return true;
+                int recordsAffected = command.ExecuteNonQuery();
+                return newGu + "";
             }
             catch (SqlException e)
             {
-                return false;
+                return "Error "+ e.Message;
             }
         }
 
