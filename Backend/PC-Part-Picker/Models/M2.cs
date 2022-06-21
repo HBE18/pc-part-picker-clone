@@ -1,6 +1,6 @@
 ﻿namespace PC_Part_Picker.Models;
 
-public class M2
+public class M2: STORAGE
 {
 	public Guid M2_ID { get; set; }
 	public string Name { get; set; }

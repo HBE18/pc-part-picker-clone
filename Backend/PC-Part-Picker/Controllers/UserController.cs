@@ -66,7 +66,7 @@ namespace PC_Part_Picker.Controllers
         {
             if(!user.email.Equals("NULL") && !user.password.Equals("NULL"))
             {
-                return Ok("User authenticated already");
+                return Ok(user.User_ID);
             }
             else
             {

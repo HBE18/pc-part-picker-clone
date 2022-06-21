@@ -6,7 +6,7 @@ using System.Data;
 
 namespace PC_Part_Picker.Controllers
 {
-    [EnableCors("cors_allow")]
+	[EnableCors("cors_allow")]
 	[ApiController]
 	[Route("systemBuilder")]
 	public class SystemBuilderController : Controller
@@ -118,8 +118,8 @@ namespace PC_Part_Picker.Controllers
 						Max_TDP = reader.GetInt32("Max_TDP"),
 						Fan_Count = reader.GetInt32("Fan_Count"),
 						Noise = reader.GetInt32("Noise")
-						
-						
+
+
 					};
 					coolers.Add(cooler);
 				}
@@ -197,15 +197,15 @@ namespace PC_Part_Picker.Controllers
 
 		[HttpGet("cases")]
 		public IEnumerable<CASE> GetCases()
-        {
+		{
 			string query = "SELECT * FROM CCase";
 			SqlCommand command = new SqlCommand(query, _connection);
 			SqlDataReader reader = command.ExecuteReader();
 			var cases = new List<CASE>();
 			if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
+			{
+				while (reader.Read())
+				{
 					CASE c = new CASE
 					{
 						CASE_ID = reader.GetGuid("Case_ID"),
@@ -220,12 +220,12 @@ namespace PC_Part_Picker.Controllers
 						RGB_Inc = reader.GetBoolean("RGB_Inc")
 					};
 					cases.Add(c);
-                }
-            }
+				}
+			}
 
 			return cases;
-        }
-		
+		}
+
 
 		[HttpGet("psus")]
 		public IEnumerable<PSU> GetPsus()
@@ -332,7 +332,51 @@ namespace PC_Part_Picker.Controllers
 					storages.Add(sata);
 				}
 			}
-		return storages;
+			return storages;
+		}
+
+
+		[HttpPost()]
+		public ActionResult postBuild(Guid userID, Guid price,Guid cpuID, Guid coolerID, Guid motherboardID, Guid memoryID, STORAGE storage, Guid gpuID, Guid caseID, Guid psuID, Guid monitorID)
+		{
+			string storageType = storage is M2 ? "M2_ID" : "SATA_ID";
+			SqlCommand command = new SqlCommand();
+			command.CommandText = "INSERT INTO BUILD (" +
+                "Build_ID, " +
+                "CPU_ID, " +
+                "Cooler_ID, " +
+                "MotherBoard_ID, " +
+                "Memory_ID, " + 
+				storageType + 
+				", GPU_ID, " +
+                "Case_ID, " +
+                "PSU_ID, " +
+                "Monitor_ID, " +
+                "User_ID, " +
+                "Price) " +
+                "VALUES (@buildID, @cpuID, @coolerID, @motherboardID, @memoryID, @storageID, @gpuID, @caseID, @psuID, @monitorID, @userID, @price)";
+			command.Parameters.AddWithValue("@buildID", Guid.NewGuid());
+			command.Parameters.AddWithValue("@cpuID", cpuID);
+			command.Parameters.AddWithValue("@coolerID", coolerID);
+			command.Parameters.AddWithValue("@motherboardID", motherboardID);
+			command.Parameters.AddWithValue("@memoryID", memoryID);
+			command.Parameters.AddWithValue("@storageID", storageType.Equals("M2_ID") ? (storage as M2).M2_ID : (storage as SATA).SATA_ID);
+			command.Parameters.AddWithValue("@gpuID", gpuID);
+			command.Parameters.AddWithValue("@caseID", caseID);
+			command.Parameters.AddWithValue("@psuID", psuID);
+			command.Parameters.AddWithValue("@monitorID", monitorID);
+			command.Parameters.AddWithValue("@userID", userID);
+			command.Parameters.AddWithValue("@price", price);
+			
+			try
+			{
+				int recordsAffected = command.ExecuteNonQuery();
+				return Ok(recordsAffected);
+			}
+			catch (SqlException e)
+			{
+				return BadRequest(e.Message);
+			}
 		}
 	}
 }

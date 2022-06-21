@@ -1,6 +1,6 @@
 ﻿namespace PC_Part_Picker.Models;
 
-public class SATA
+public class SATA : STORAGE
 {
 	public Guid SATA_ID { get; set; }
 	public string Name { get; set; }

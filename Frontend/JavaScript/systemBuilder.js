@@ -8,7 +8,8 @@ const build = {
     gpu:null,
     case:null,
     psu:null,
-    monitor:null
+    monitor:null,
+    price:Number(price)
 };
 
 function addPrice(num){
@@ -173,6 +174,7 @@ async function getDropdownItems(dropdownIDs){
                     break;
             }
             addPrice(obj.price);
+            build.price = Number(price);
             span.textContent = obj.name;
             liMb.replaceChild(span, drpMb);
             let myA = document.createElement("a");
@@ -183,6 +185,7 @@ async function getDropdownItems(dropdownIDs){
                 liMb.replaceChild(drpMb, span);
                 liMb.removeChild(myA);
                 minPrice(obj.price);
+                build.price = Number(price);
                 switch (elementType) {
                     case 'cpu':
                         build.cpu = null;
